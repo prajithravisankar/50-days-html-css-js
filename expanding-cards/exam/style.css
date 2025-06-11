@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Edu', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: none;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    margin: 10px;
+    height: 80vh;
+    flex: 0.5;
+    position: relative;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    position: absolute;
+    bottom: 50px;
+    left: 5px;
+    font-family: sans-serif;
+    color: peachpuff;
+    font-size: 20px;
+    -webkit-text-stroke: 1px black;
+    opacity: 0;
+    margin: 0;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.3s;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(5), .panel:nth-of-type(6) {
+        display: none;
+    }
+}
