@@ -1,22 +1,23 @@
 :root {
-    --line-border-empty: hsl(0, 8%, 55%);
-    --line-border-fill: hsl(0, 52%, 62%);
+    --empty-color: grey;
+    --fill-color: hsl(40, 45%, 29%);
+    --circle-color: rgb(210, 220, 73);
 }
 
 * {
-    box-sizing: border-box;
-    font-size: 12px;
     font-family: sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
-    background-color: peachpuff;
-    align-items: center;
     justify-content: center;
-    overflow: hidden;
-    margin: 0;
+    align-items: center;
     height: 100vh;
+    background-color: palegoldenrod;
+    overflow: 0;
+    margin: 0;
 }
 
 .container {
@@ -26,73 +27,62 @@ body {
 .progress-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
     width: 300px;
     max-width: 100%;
+    margin-bottom: 30px;
     position: relative;
 }
 
 .progress-container::before {
     content: '';
     position: absolute;
-    background-color: var(--line-border-empty);
     width: 100%;
+    background-color: var(--empty-color);
     height: 4px;
     top: 50%;
     left: 0;
     z-index: -1;
     transform: translateY(-50%);
 }
+
 
 .progress {
     position: absolute;
-    background-color: var(--line-border-fill);
     width: 0%;
+    background-color: var(--fill-color);
     height: 4px;
     top: 50%;
     left: 0;
     z-index: -1;
     transform: translateY(-50%);
-    transition: 0.4s ease;
+    transition: 1s ease-in;
 }
 
 .circle {
-    background-color: white;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    background-color: var(--circle-color);
+    border: 3px solid var(--empty-color);
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--line-border-empty);
-    transition: 0.4s ease;
 }
 
 .circle.active {
-    border-color: var(--line-border-fill);
+    border-color: var(--fill-color);
 }
 
 .btn {
-    border: 0;
-    margin: 5px;
-    padding: 5px 30px;
-    border-radius: 6px;
-    background-color: var(--line-border-fill);
-    color: white;
-    font-size: 14px;
     cursor: pointer;
-}
-
-.btn:active {
-    transform: scale(0.98);
-}
-
-.btn:focus {
-    outline: 0;
+    background-color: var(--circle-color);
+    padding: 10px 35px;
+    margin: 5px;
+    border-radius: 6px;
+    border: none;
+    color: black;
 }
 
 .btn:disabled {
-    background-color: grey;
     cursor: not-allowed;
-    transition: 0.5s ease-in;
 }
